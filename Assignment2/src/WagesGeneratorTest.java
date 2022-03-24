@@ -11,7 +11,7 @@ public class WagesGeneratorTest extends TestCase {
 
         WagesGenerator testObj = new WagesGenerator();
 
-        assertEquals(245, testObj.calculateWages(200 , 0.09, 500));
+        assertEquals(245.0, testObj.calculateWages(200 , 0.09, 500));
 
     } // end testcalculateWages001
 
@@ -42,7 +42,7 @@ public class WagesGeneratorTest extends TestCase {
 
     } // end testcalculateWages003
 
-    // Test Number: 3
+    // Test Number: 4
     // Test Objective: To calculate invalid values
     // Test input(s): weekly = "200" , commissionsPercent = "0.09" , comAmount = "-200"
     // Test expected output(s): Error
