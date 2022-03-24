@@ -9,9 +9,17 @@ public class WagesGeneratorTest extends TestCase {
 
     public void testcalculateWages001() {
 
-        WagesGenerator testObj = new WagesGenerator();
+        try
+        {
+            WagesGenerator testObj = new WagesGenerator();
 
-        assertEquals(245.0, testObj.calculateWages(200 , 0.09, 500));
+            assertEquals(245.0, testObj.calculateWages(200 , 0.09, 500));
+        }
+        catch(WagesExceptionHandler e)
+        {
+            fail("No Exception expected");
+        }
+
 
     } // end testcalculateWages001
 
@@ -22,10 +30,18 @@ public class WagesGeneratorTest extends TestCase {
     // Test expected output(s): Error
 
     public void testcalculateWages002() {
-
+        double wages;
         WagesGenerator testObj = new WagesGenerator();
 
-        assertEquals("error", testObj.calculateWages(150 , 0.06, 200));
+        try
+        {
+            wages = testObj.calculateWages(150, 0.06,200);
+        }
+        catch (WagesExceptionHandler e)
+        {
+            assertEquals("Incorrect Values: Please make sure weekly is 200, comissions percent is 0.09 and comAmount is greater than 0" , e.getMessage());
+        }
+
 
     } // end testcalculateWages002
 
@@ -35,10 +51,18 @@ public class WagesGeneratorTest extends TestCase {
     // Test expected output(s): Error
 
     public void testcalculateWages003() {
-
+        double wages;
         WagesGenerator testObj = new WagesGenerator();
 
-        assertEquals("error", testObj.calculateWages(250 , 0.1, 700));
+        try
+        {
+            wages = testObj.calculateWages(250, 0.1,700);
+        }
+        catch (WagesExceptionHandler e)
+        {
+            assertEquals("Incorrect Values: Please make sure weekly is 200, comissions percent is 0.09 and comAmount is greater than 0" , e.getMessage());
+        }
+
 
     } // end testcalculateWages003
 
@@ -48,10 +72,18 @@ public class WagesGeneratorTest extends TestCase {
     // Test expected output(s): Error
 
     public void testcalculateWages004() {
-
+        double wages;
         WagesGenerator testObj = new WagesGenerator();
 
-        assertEquals("error", testObj.calculateWages(200 , 0.09, -200));
+        try
+        {
+            wages = testObj.calculateWages(200, 0.09,-200);
+        }
+        catch (WagesExceptionHandler e)
+        {
+            assertEquals("Incorrect Values: Please make sure weekly is 200, comissions percent is 0.09 and comAmount is greater than 0" , e.getMessage());
+        }
+
 
     } // end testcalculateWages004
 
