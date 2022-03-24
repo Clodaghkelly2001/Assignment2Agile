@@ -5,6 +5,7 @@ public class WagesGenerator
         double wages = weekly + (comAmount * commissionsPercent);
         if(weekly == 200 && commissionsPercent == 0.09 && comAmount > 0)
         {
+            System.out.println("Weekly Wages Are: " + wages);
             return wages;
         }
         else if (weekly < 200 && commissionsPercent == 0.09 && comAmount > 0)
